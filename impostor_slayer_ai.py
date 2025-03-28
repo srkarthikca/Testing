@@ -1,16 +1,8 @@
 import openai
 import streamlit as st
+
 # --- OpenAI Setup ---
-
-
 openai.api_key = st.secrets["OPENAI_API_KEY"]
-# Example usage
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[
-        {"role": "user", "content": "Hello!"}
-    ]
-)
 
 # --- Page Config ---
 st.set_page_config(page_title="Impostor Slayer AI", page_icon="🛡️", layout="centered")
@@ -24,7 +16,7 @@ tab1, tab2, tab3 = st.tabs(["💭 Reframe a Thought", "🌟 Daily Boost", "📈 
 
 # --- Chat Function ---
 def call_openai(prompt, role="You are a supportive, confidence-boosting coach who helps reframe negative self-talk."):
-    chat_completion = client.chat.completions.create(
+    chat_completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": role},
