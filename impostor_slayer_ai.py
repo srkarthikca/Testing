@@ -2,9 +2,7 @@ import streamlit as st
 import openai
 
 # --- OpenAI Setup ---
-openai.api_key = st.secrets["OPENAI_API_KEY"]
-
-client = openai.OpenAI(openai.api_keyapi_key")  # Replace with your key
+client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # --- Page Config ---
 st.set_page_config(page_title="Impostor Slayer AI", page_icon="🛡️", layout="centered")
@@ -65,7 +63,7 @@ with tab3:
         else:
             st.warning("Add some wins or reflections first.")
 
-# Add a disclaimer in the sidebar---
+# --- Sidebar Disclaimer ---
 with st.sidebar:
     st.markdown("---")
     st.markdown("#### ⚠️ Disclaimer")
