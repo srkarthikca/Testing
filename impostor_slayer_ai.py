@@ -1,8 +1,16 @@
+import openai
 import streamlit as st
-from openai import OpenAI
-
 # --- OpenAI Setup ---
-client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Example usage
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[
+        {"role": "user", "content": "Hello!"}
+    ]
+)
 
 # --- Page Config ---
 st.set_page_config(page_title="Impostor Slayer AI", page_icon="🛡️", layout="centered")
