@@ -2,7 +2,9 @@ import streamlit as st
 import openai
 
 # --- OpenAI Setup ---
-client = openai.OpenAI(api_key="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")  # Replace with your key
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
+client = openai.OpenAI(openai.api_keyapi_key")  # Replace with your key
 
 # --- Page Config ---
 st.set_page_config(page_title="Impostor Slayer AI", page_icon="🛡️", layout="centered")
